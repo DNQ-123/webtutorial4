@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Profiles</title>
+<meta name="author" content="Nainqi Di">
+</head>
+<body>
+<h1>User Profiles</h1>
+<div id="userProfiles"></div>
+
+<script>
+// Fetch and parse the JSON data
+fetch('userProfiles.json')
+.then(response => {
+    if (!response.ok)
+        throw new Error('Fetch error: ' + response.status);
+    else
+        return response.json();
+})
+.then(json => {
+    const profiles = json.profiles;
+
+    // Generate HTML content for each user profile
+    let output = "";
+    for (const profile of profiles) {
+        output += `
+            <div>
+                <h2>${profile.firstName} ${profile.lastName}</h2>
+                <p>Email: <strong>${profile.email}</strong></p>
+                <p>Date of Birth: <strong>${profile.dateOfBirth}</strong></p>
+                <p>Address: <strong>${profile.address.street}, ${profile.address.city}, ${profile.address.state} ${profile.address.zipCode}</strong></p>
+                <p>Theme Preference: <strong>${profile.preferences.theme}</strong></p>
+                <p>Language Preference: <strong>${profile.preferences.language}</strong></p>
+                <p>Notifications: <strong>${profile.preferences.notifications ? 'Enabled' : 'Disabled'}</strong></p>
+                <p>Newsletter Subscription: <strong>${profile.subscription ? 'Subscribed' : 'Not Subscribed'}</strong></p>
+            </div>
+        `;
+    }
+
+    // Insert the generated content into the HTML page
+    document.getElementById("userProfiles").innerHTML = output;
+})
+.catch(err => console.error('Fetch error: ' + err.message));
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+  <book id="b1">
+    <title>Harry Potter and the Sorcerer's Stone</title>
+    <author>J.K. Rowling</author>
+    <price>12.99</price>
+  </book>
+  <book id="b2">
+    <title>The Hobbit</title>
+    <author>J.R.R. Tolkien</author>
+    <price>9.99</price>
+  </book>
+  <book id="b3">
+    <title>To Kill a Mockingbird</title>
+    <author>Harper Lee</author>
+    <price>7.99</price>
+  </book>
+</catalog>
